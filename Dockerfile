@@ -37,9 +37,8 @@ RUN PASS=$(openssl rand -base64 32) && \
     sudo echo -e "deb http://ppa.launchpad.net/git-core/ppa/ubuntu precise main\ndeb-src http://ppa.launchpad.net/git-core/ppa/ubuntu precise main" >> /etc/apt/sources.list.d/sources.list && \
     sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys A1715D88E1DF1F24 && \
     sudo apt-get install git subversion -y && \
-    apt-get -y autoremove --purge && \
-    apt-get -y autoremove &&
-    apt-get -y clean && \
+    sudo apt-get -y autoremove --purge && \
+    sudo apt-get -y clean && \
     rm -rf /var/lib/apt/lists/* && \
     echo "#! /bin/bash\n set -e\n sudo /usr/sbin/sshd -D &\n exec \"\$@\"" > /home/user/entrypoint.sh && chmod a+x /home/user/entrypoint.sh
 
