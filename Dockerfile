@@ -19,17 +19,13 @@ RUN apt-get update && \
     procps \
     wget \
     unzip \
-    mc \
     locales \
     ca-certificates \
     curl \
     build-essential \
-    python3 \
-    python3-dev \
-    python-pip \
-    python3-pip
+    python-pip
 
-RUN sudo pip3 install -U && \
+RUN sudo pip install -U && \
     sudo pip install virtualenv && \
     pip install platformio && \
     platformio settings set enable_telemetry No || 0
