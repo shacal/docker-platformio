@@ -1,8 +1,8 @@
 FROM debian:jessie
 
 RUN apt-get update && \
-    apt-get -y -q upgrade && \
-    apt-get -y -q install \
+    apt-get -y upgrade && \
+    apt-get -y install \
     git \
     openssh-server \
     sudo \
