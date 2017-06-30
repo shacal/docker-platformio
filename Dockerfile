@@ -33,6 +33,11 @@ RUN sudo pip install virtualenv -U && \
     pip install platformio && \
     platformio settings set enable_telemetry No || 0
 
+RUN platformio platform install atmelavr && \
+    platformio platform install espressif8266 && \
+    platformio platform install espressif32 && \
+    platformio platform install teensy
+
 RUN sudo apt-get -y autoremove --purge && \
     sudo apt-get -y autoclean && \
     sudo apt-get -y clean && \
