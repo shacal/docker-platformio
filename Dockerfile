@@ -1,4 +1,5 @@
 FROM debian:jessie
+MAINTAINER Remo <remo@live.fi>
 
 RUN echo "deb http://ppa.launchpad.net/git-core/ppa/ubuntu precise main\ndeb-src http://ppa.launchpad.net/git-core/ppa/ubuntu precise main" >> /etc/apt/sources.list.d/sources.list && \
     apt-key adv --keyserver keyserver.ubuntu.com --recv-keys A1715D88E1DF1F24
@@ -30,7 +31,7 @@ RUN sudo localedef -i en_US -f UTF-8 en_US.UTF-8 && \
     echo "#! /bin/bash\n set -e\n sudo /usr/sbin/sshd -D &\n exec \"\$@\"" > /home/user/entrypoint.sh && chmod a+x /home/user/entrypoint.sh
 
 RUN sudo pip install virtualenv -U && \
-    pip install platformio && \
+    pip install platformio==3.6.0 && \
     platformio settings set enable_telemetry No || 0
 
 RUN sudo apt-get -y autoremove --purge && \
